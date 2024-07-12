@@ -1,0 +1,1 @@
+[{"pkgName":"cl-user","text":"(subseq \"abcdefg\" 0 4)"},{"pkgName":"cl-user","text":"(length \"abcd\")"}]
