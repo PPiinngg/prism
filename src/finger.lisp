@@ -12,7 +12,7 @@
       (let* ((selector (string-right-trim '(#\return)
                                           (read-line char-stream)))
              (unchecked-path (if (string= "" selector)
-                                 "finger/index"
+                                 "finger/root"
                                  (str:concat "finger/" selector)))
              (path (if (uiop:file-exists-p unchecked-path)
                        unchecked-path
