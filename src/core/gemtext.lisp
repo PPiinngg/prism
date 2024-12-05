@@ -1,0 +1,16 @@
+(in-package #:prism-core)
+
+(defun validate-token-type (tkn)
+  (loop for sym in '(:empty :text :link :quote :head :list :preform)
+    do (if (eql sym (car tkn))
+           (return-from validate-token-type t)))
+  nil)
+
+(defun validate-token-contents (tkn)
+  (cond ((eql (car tkn) :empty) (eql nil (cdr tkn)))
+        ((eql (car tkn) :text) (eql 1 (length (cdr tkn))))
+        ((eql (car tkn) :link) (<= 1 (length (cdr tkn)) 2))
+        ((eql (car tkn) :quote) (eql 1 (length (cdr tkn))))
+        ((eql (car tkn) :head) (eql 2 (length (cdr tkn))))
+        ((eql (car tkn) :list) (eql 1 (length (cdr tkn))))
+        ((eql (car tkn) :preform))))

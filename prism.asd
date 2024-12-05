@@ -10,4 +10,6 @@
   :pathname "src/"
   :components ((:file "packages")
                (:file "config" :depends-on ("packages"))
-               (:file "finger" :depends-on ("packages" "config"))))
+               (:file "core/database" :depends-on ("packages"))
+               (:file "finger" :depends-on ("packages" "config"))
+               (:file "gemini/render" :depends-on ("packages" "config"))))
